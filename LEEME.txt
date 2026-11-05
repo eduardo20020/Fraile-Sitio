@@ -1,0 +1,98 @@
+=====================================================================
+  SITIO WEB  PRÉSTAMOS EL FRAILE  (HTML + JavaScript, sin servidor)
+=====================================================================
+
+CONTENIDO DE LA CARPETA
+-----------------------
+  index.html           La página completa
+  css/styles.css       Diseño (colores, tamaños, responsive)
+  js/data.js           >>> DATOS EDITABLES: teléfonos, WhatsApp, redes,
+                           horario, sucursales, aviso de promoción
+  js/main.js           Funcionamiento (no es necesario tocarlo)
+  img/                 Logo, íconos y fotos de sucursales
+  video/               Video de la sucursal San Blas
+
+
+1) VER EL SITIO EN TU COMPUTADORA
+---------------------------------
+  Doble clic en index.html. Se abre en el navegador y funciona igual
+  que en internet (necesita internet solo para las tipografías).
+
+
+2) LLENAR TELÉFONOS, WHATSAPP Y REDES
+-------------------------------------
+  Abre js/data.js con el Bloc de notas (clic derecho > Abrir con >
+  Bloc de notas) y escribe los datos entre las comillas:
+
+      telefono: "8112345678",
+      whatsapp: "8112345678",
+      facebook: "https://www.facebook.com/tu-pagina",
+      registroProfeco: "1234-2024",
+
+  - Teléfonos: solo los 10 dígitos, sin espacios ni guiones.
+  - Si un dato se deja vacío ("") su botón NO aparece en el sitio.
+  - Cada sucursal tiene su propio campo  telefono: ""  por si alguna
+    tiene número distinto al general.
+  - Para que "Cómo llegar" abra el punto exacto de una sucursal, busca
+    la sucursal en Google Maps > Compartir > Copiar vínculo, y pégalo
+    en el campo  mapa: ""  de esa sucursal.
+  - Para que el "Bazar en línea" lleve a la tienda en línea, pega su
+    dirección en  bazarEnLinea: "".
+  - Para mostrar una promoción arriba del sitio, escribe el texto en
+    promocion: "".  Para quitarla, déjalo vacío.
+
+  Guarda el archivo (Ctrl + G) y recarga el navegador (F5).
+
+
+3) SUBIR A GODADDY
+------------------
+  Requisito: plan "Web Hosting" (cPanel). El "Website Builder" /
+  "Creador de sitios web" de GoDaddy NO permite subir archivos HTML.
+
+  a) Selecciona TODO lo que está DENTRO de esta carpeta (index.html,
+     css, js, img, video) > clic derecho > Enviar a > Carpeta
+     comprimida (zip).
+  b) Entra a GoDaddy > Mis productos > Web Hosting > Administrar >
+     cPanel Admin > Administrador de archivos.
+  c) Abre la carpeta  public_html  y usa "Cargar" para subir el .zip.
+  d) Clic derecho sobre el .zip > "Extract" / "Extraer". Después
+     puedes borrar el .zip.
+  e) Verifica que index.html quede DIRECTAMENTE dentro de public_html
+     (no dentro de otra subcarpeta).
+  f) En cPanel > "SSL/TLS Status" activa el certificado (AutoSSL) y en
+     "Dominios" activa "Forzar redireccionamiento HTTPS".
+
+  Para actualizar algo después: sube solo el archivo que cambiaste
+  (por ejemplo js/data.js) y reemplaza el anterior.
+
+  Importante: el servidor de GoDaddy distingue mayúsculas y
+  minúsculas. Si agregas fotos, usa nombres en minúsculas, sin
+  espacios ni acentos (ej. img/sucursales/bugambilias.jpg).
+
+
+4) AGREGAR FOTO A UNA SUCURSAL QUE NO TIENE
+-------------------------------------------
+  Sin foto: Bugambilias y los bazares Lázaro Cárdenas y Polvorín
+  (muestran una imagen con la marca).
+  Copia la foto a  img/sucursales/  (de preferencia horizontal, de
+  unos 800 px de ancho) y en js/data.js escribe su ruta en  foto: "",
+  por ejemplo:  foto: "img/sucursales/bugambilias.jpg"
+
+
+5) CUANDO TENGAS DOMINIO
+------------------------
+  En index.html, en la línea  og:image, cambia "img/hero-heroes.jpg"
+  por la dirección completa, ej. "https://www.tudominio.com/img/hero-heroes.jpg"
+  (sirve para que se vea la imagen al compartir el enlace en WhatsApp
+  o Facebook).
+
+
+DATOS POR CONFIRMAR CON EL CLIENTE
+----------------------------------
+  - Teléfonos / WhatsApp / Facebook y número de registro PROFECO.
+  - Dirección de la tienda del Bazar en línea (Facebook, Marketplace,
+    etc.). Se escribe en  bazarEnLinea: ""  dentro de js/data.js.
+    Mientras esté vacío, el botón del Bazar en línea abre el WhatsApp
+    (y si tampoco hay WhatsApp, no muestra botón).
+  - Horario de los bazares (se usó el mismo del empeño:
+    Lun a Sáb 8:30 a.m. – 8:30 p.m., Dom 9:00 a.m. – 6:00 p.m.).
